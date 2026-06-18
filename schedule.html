@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule — HysecCon 2026</title>
+  <meta name="description" content="Full schedule for HysecCon 2026. 28 November 2026, Hyderabad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .sched-full {
+      margin-top: 2rem;
+    }
+    .sched-track-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--cyan);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,200,232,0.2);
+      margin-bottom: 0.25rem;
+    }
+    .sched-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .sched-item:last-child { border-bottom: none; }
+    .sched-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .sched-dot.keynote  { background: var(--cyan); box-shadow: 0 0 8px var(--cyan-glow); }
+    .sched-dot.talk     { background: var(--gray-600); }
+    .sched-dot.panel    { background: var(--gold); }
+    .sched-dot.breaktime{ background: var(--gray-700); }
+    .sched-time {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--gray-600);
+      white-space: nowrap;
+      min-width: 120px;
+    }
+    .sched-name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      flex: 1;
+    }
+    .sched-name.is-keynote  { color: var(--cyan); font-weight: 700; }
+    .sched-name.is-panel    { color: var(--gold); font-weight: 600; }
+    .sched-name.is-break    { color: var(--gray-600); font-style: italic; font-weight: 400; }
+    .sched-type-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .badge-keynote { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0,200,232,0.3); }
+    .badge-talk    { background: rgba(255,255,255,0.05); color: var(--gray-400); border: 1px solid rgba(255,255,255,0.1); }
+    .badge-panel   { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(245,158,11,0.3); }
+    .badge-break   { background: rgba(255,255,255,0.03); color: var(--gray-700); border: 1px solid rgba(255,255,255,0.06); }
+    .legend {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--gray-400);
+    }
+    .legend-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+    }
+    @media (max-width: 580px) {
+      .sched-type-badge { display: none; }
+      .sched-time { min-width: 90px; font-size: 0.72rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#format">Format</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="cfp.html" class="nav-cta">Submit CFP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="eyebrow">28 November 2026 · Hyderabad · Venue TBA</div>
+      <h1>A full day,<br>end to end.</h1>
+      <p>Indicative schedule — final timings and speaker assignments will be confirmed closer to the date.</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div> Keynote / Closing</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--gray-600)"></div> Technical Talk</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Panel Discussion</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--gray-700)"></div> Break</div>
+      </div>
+
+      <div class="sched-full">
+        <div class="sched-track-label">Morning</div>
+        <div class="sched-item">
+          <div class="sched-dot keynote"></div>
+          <span class="sched-time">09:00 – 09:20</span>
+          <span class="sched-name is-keynote">Opening Keynote</span>
+          <span class="sched-type-badge badge-keynote">Keynote</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">09:20 – 10:10</span>
+          <span class="sched-name">Talk 1 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">10:10 – 10:40</span>
+          <span class="sched-name">Talk 2 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot breaktime"></div>
+          <span class="sched-time">10:40 – 11:00</span>
+          <span class="sched-name is-break">Tea Break</span>
+          <span class="sched-type-badge badge-break">Break</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot panel"></div>
+          <span class="sched-time">11:00 – 11:45</span>
+          <span class="sched-name is-panel">Panel 1 — Government Bodies</span>
+          <span class="sched-type-badge badge-panel">Panel</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">11:45 – 12:15</span>
+          <span class="sched-name">Talk 3 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">12:15 – 12:45</span>
+          <span class="sched-name">Talk 4 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot breaktime"></div>
+          <span class="sched-time">12:45 – 13:45</span>
+          <span class="sched-name is-break">Lunch</span>
+          <span class="sched-type-badge badge-break">Break</span>
+        </div>
+
+        <div class="sched-track-label" style="margin-top:1.5rem;">Afternoon</div>
+        <div class="sched-item">
+          <div class="sched-dot panel"></div>
+          <span class="sched-time">13:45 – 14:30</span>
+          <span class="sched-name is-panel">Panel 2 — Industry Professionals</span>
+          <span class="sched-type-badge badge-panel">Panel</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">14:30 – 15:00</span>
+          <span class="sched-name">Talk 5 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">15:00 – 15:30</span>
+          <span class="sched-name">Talk 6 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">15:30 – 16:00</span>
+          <span class="sched-name">Talk 7 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">16:00 – 16:30</span>
+          <span class="sched-name">Talk 8 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot breaktime"></div>
+          <span class="sched-time">16:30 – 17:00</span>
+          <span class="sched-name is-break">Tea Break</span>
+          <span class="sched-type-badge badge-break">Break</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot talk"></div>
+          <span class="sched-time">17:00 – 17:30</span>
+          <span class="sched-name">Talk 9 — TBA</span>
+          <span class="sched-type-badge badge-talk">Talk</span>
+        </div>
+        <div class="sched-item">
+          <div class="sched-dot keynote"></div>
+          <span class="sched-time">17:30 – 18:00</span>
+          <span class="sched-name is-keynote">Closing &amp; Announcements</span>
+          <span class="sched-type-badge badge-keynote">Closing</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span></a>
+          <p>A technical, community-led security conference. 28 November 2026 · Hyderabad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Conference</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#format">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener">Register Interest</a></li>
+            <li><a href="cfp.html">Submit a Talk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Hyderabad Security Conference.</p>
+        <p>Organised by the Hyderabad security community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>

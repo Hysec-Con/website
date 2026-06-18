@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call for Training — HysecCon 2026</title>
+  <meta name="description" content="Propose a training workshop for HysecCon 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cft-note {
+      background: rgba(245,158,11,0.06);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 14px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .cft-note p { color: var(--gray-400); font-size: 0.92rem; line-height: 1.75; }
+    .cft-note strong { color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#format">Format</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="cfp.html" class="nav-cta">Submit CFP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Call for Training</div>
+      <h1>Propose a workshop.</h1>
+      <p>HysecCon 2026 may include hands-on training workshops alongside the main conference track. If you'd like to run a session, get in touch.</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="cft-note">
+        <p><strong>Training details are being finalised.</strong> If you're interested in running a hands-on workshop at HysecCon 2026 — covering web security, reverse engineering, cloud security, or any other practical security domain — use the button below to express interest and we'll follow up with more details.</p>
+      </div>
+      <div style="margin-top:2.5rem;">
+        <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="btn-primary">Express Training Interest</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span></a>
+          <p>A technical, community-led security conference. 28 November 2026 · Hyderabad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Conference</h4>
+          <ul>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#format">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener">Register Interest</a></li>
+            <li><a href="cfp.html">Submit a Talk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Hyderabad Security Conference.</p>
+        <p>Organised by the Hyderabad security community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>

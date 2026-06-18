@@ -1,351 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HysecCon 2026 - Hyderabad Security Conference</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        .container {
-            text-align: center;
-            padding: 1.5rem;
-            max-width: 600px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .coming-soon {
-            font-size: 0.875rem;
-            color: #00d4ff;
-            margin-bottom: 1.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 600;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 10vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
-        }
-
-        .location {
-            font-size: clamp(1rem, 4vw, 1.25rem);
-            color: #888;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
-        }
-
-        .description {
-            font-size: clamp(1rem, 3vw, 1.125rem);
-            line-height: 1.7;
-            color: #ccc;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.6s forwards;
-        }
-
-        .register-btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: clamp(1rem, 3vw, 1.125rem);
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.8s forwards;
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .register-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
-        }
-
-        .register-btn:active {
-            transform: translateY(-1px);
-        }
-
-        .date {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #666;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 1s forwards;
-        }
-
-        .highlight {
-            color: #00d4ff;
-            font-weight: 600;
-        }
-
-        .cyber-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.05;
-            background-image: 
-                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 30s linear infinite;
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .float-element {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00d4ff;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-100px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .register-btn {
-                padding: 0.875rem 2rem;
-            }
-        }
-
-        /* Modal styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            max-width: 450px;
-            width: 90%;
-            border: 1px solid #00d4ff;
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-title {
-            color: #00d4ff;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .modal-text {
-            color: #ccc;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .email-input {
-            width: 100%;
-            padding: 1rem;
-            background: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #00d4ff;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .modal-btn {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-btn-primary {
-            background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
-            color: #000;
-        }
-
-        .modal-btn-secondary {
-            background: transparent;
-            color: #888;
-            border: 1px solid #333;
-        }
-
-        .modal-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .success-message {
-            text-align: center;
-        }
-
-        .success-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HysecCon 2026 — Hyderabad Security Conference</title>
+  <meta name="description" content="A technical, community-led security conference for India's fastest-growing tech hub. 28 November 2026 · Hyderabad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="cyber-grid"></div>
-    <div class="floating-elements" id="floatingElements"></div>
-    
-    <div class="container">
-        <div class="coming-soon">Coming Soon</div>
-        <h1>HysecCon 2026</h1>
-        <p class="location">📍 Hyderabad, India</p>
-        <p class="description">
-            The <span class="highlight">premier cybersecurity conference</span> is coming to Hyderabad. 
-            Join industry leaders, security researchers, and tech enthusiasts for 
-            an unforgettable experience in digital security.
-        </p>
-        
-        <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" class="register-btn">Register Your Interest</a>
-        
-        <div class="date">
-            Late 2026 • Be the first to know
-        </div>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#format">Format</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="cfp.html" class="nav-cta">Submit CFP</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <script>
-        // Create floating elements
-        function createFloatingElements() {
-            const container = document.getElementById('floatingElements');
-            const elementCount = 30;
-            
-            for (let i = 0; i < elementCount; i++) {
-                const element = document.createElement('div');
-                element.className = 'float-element';
-                element.style.left = Math.random() * 100 + '%';
-                element.style.animationDelay = Math.random() * 20 + 's';
-                element.style.animationDuration = (15 + Math.random() * 10) + 's';
-                container.appendChild(element);
-            }
-        }
+  <!-- ── Hero ── -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">28 November 2026 &nbsp;·&nbsp; Hyderabad &nbsp;·&nbsp; Venue TBA</div>
+      <h1 class="hero-title">
+        Hyderabad<br>
+        <em>Security</em><br>
+        Conference
+      </h1>
+      <p class="hero-sub">
+        A technical, community-led security conference<br>
+        for India's fastest-growing tech hub.
+      </p>
+      <div class="hero-pills">
+        <span class="pill">100% Technical</span>
+        <span class="pill">Peer-Reviewed CFP</span>
+        <span class="pill">Live CTF</span>
+        <span class="pill">One Day · One Track</span>
+      </div>
+      <div class="hero-cta">
+        <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="btn-primary">Register Interest</a>
+        <a href="cfp.html" class="btn-outline">Submit a Talk</a>
+      </div>
+      <div class="countdown" id="countdown">
+        <div class="cd-item"><span id="cd-d">--</span><label>Days</label></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item"><span id="cd-h">--</span><label>Hours</label></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item"><span id="cd-m">--</span><label>Mins</label></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item"><span id="cd-s">--</span><label>Secs</label></div>
+      </div>
+    </div>
+  </section>
 
-        // Initialize on load
-        window.addEventListener('load', createFloatingElements);
-    </script>
+  <!-- ── Stats Bar ── -->
+  <div class="stats-bar">
+    <div class="container stats-grid">
+      <div>
+        <span class="stat-num">300+</span>
+        <span class="stat-lbl">Expected Attendees</span>
+      </div>
+      <div>
+        <span class="stat-num">9+</span>
+        <span class="stat-lbl">Technical Talks</span>
+      </div>
+      <div>
+        <span class="stat-num">2</span>
+        <span class="stat-lbl">Leadership Panels</span>
+      </div>
+      <div>
+        <span class="stat-num">1</span>
+        <span class="stat-lbl">Live CTF</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Why Hyderabad ── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="eyebrow">Why Hyderabad</div>
+      <h2 class="section-title">India's tech capital deserves<br>its own security conference</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>India's security research community has grown significantly over the years, with regional conferences playing a key role in connecting practitioners, building local talent, and bringing global expertise closer to home.</p>
+          <p><strong>Hyderabad has no comparable event</strong> — despite being one of India's largest technology employers and home to security teams at nearly every major global company.</p>
+          <p>HysecCon is built to change that. One day, one track, zero filler — just original research, deep technical talks, and hands-on competition.</p>
+        </div>
+        <div class="about-kpis">
+          <div class="kpi-card">
+            <strong>1,500+</strong>
+            <span>Global Capability Centers in Hyderabad</span>
+          </div>
+          <div class="kpi-card">
+            <strong>Top 3</strong>
+            <span>Indian metros by IT/ITES employment</span>
+          </div>
+          <div class="kpi-card highlight">
+            <strong>0</strong>
+            <span>Major technical security conferences hosted in city — until now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Format ── -->
+  <section class="section" id="format">
+    <div class="container">
+      <div class="eyebrow">Conference Format</div>
+      <h2 class="section-title">One day. One track.<br>Zero sales pitches.</h2>
+      <div class="format-grid">
+        <div class="fmt-card">
+          <div class="fmt-icon">🎤</div>
+          <h3>Technical Talks</h3>
+          <p>Original research, vulnerability deep-dives, defensive engineering, and tooling demos. Selected through a transparent Call for Papers and reviewed by an independent board.</p>
+          <ul class="fmt-tags">
+            <li>CFP-driven</li>
+            <li>Peer-reviewed</li>
+            <li>No vendor pitches</li>
+          </ul>
+        </div>
+        <div class="fmt-card">
+          <div class="fmt-icon">🏛️</div>
+          <h3>Leadership Panels</h3>
+          <p>Curated discussions bringing together industry leaders, senior government officers, and policy makers for unfiltered conversations on the security challenges facing India.</p>
+          <ul class="fmt-tags">
+            <li>Industry × Government</li>
+            <li>Policy &amp; leadership</li>
+            <li>Audience Q&amp;A</li>
+          </ul>
+        </div>
+        <div class="fmt-card gold">
+          <div class="fmt-icon">🏆</div>
+          <h3>Capture the Flag</h3>
+          <p>A CTF competition open to students and professionals, with challenges across web, binary, crypto, forensics and cloud. Hosted on-site at the venue with prizes for top teams.</p>
+          <ul class="fmt-tags">
+            <li>On-site (venue TBA)</li>
+            <li>Jeopardy-style</li>
+            <li>Prizes for top teams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Schedule ── -->
+  <section class="section section-alt" id="schedule">
+    <div class="container">
+      <div class="eyebrow">The Agenda</div>
+      <h2 class="section-title">A full day, end to end</h2>
+      <p class="sched-note">Indicative schedule — final timings to be confirmed closer to the date.</p>
+      <div class="sched-cols">
+        <div>
+          <div class="sched-col-label">Morning</div>
+          <div class="si">
+            <div class="si-dot keynote"></div>
+            <span class="si-time">09:00 – 09:20</span>
+            <span class="si-title is-keynote">Opening Keynote</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">09:20 – 10:10</span>
+            <span class="si-title">Talk 1</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">10:10 – 10:40</span>
+            <span class="si-title">Talk 2</span>
+          </div>
+          <div class="si">
+            <div class="si-dot breaktime"></div>
+            <span class="si-time">10:40 – 11:00</span>
+            <span class="si-title is-break">Tea Break</span>
+          </div>
+          <div class="si">
+            <div class="si-dot panel"></div>
+            <span class="si-time">11:00 – 11:45</span>
+            <span class="si-title is-panel">Panel 1 — Government Bodies</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">11:45 – 12:15</span>
+            <span class="si-title">Talk 3</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">12:15 – 12:45</span>
+            <span class="si-title">Talk 4</span>
+          </div>
+          <div class="si">
+            <div class="si-dot breaktime"></div>
+            <span class="si-time">12:45 – 13:45</span>
+            <span class="si-title is-break">Lunch</span>
+          </div>
+        </div>
+        <div>
+          <div class="sched-col-label">Afternoon</div>
+          <div class="si">
+            <div class="si-dot panel"></div>
+            <span class="si-time">13:45 – 14:30</span>
+            <span class="si-title is-panel">Panel 2 — Industry Professionals</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">14:30 – 15:00</span>
+            <span class="si-title">Talk 5</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">15:00 – 15:30</span>
+            <span class="si-title">Talk 6</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">15:30 – 16:00</span>
+            <span class="si-title">Talk 7</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">16:00 – 16:30</span>
+            <span class="si-title">Talk 8</span>
+          </div>
+          <div class="si">
+            <div class="si-dot breaktime"></div>
+            <span class="si-time">16:30 – 17:00</span>
+            <span class="si-title is-break">Tea Break</span>
+          </div>
+          <div class="si">
+            <div class="si-dot talk"></div>
+            <span class="si-time">17:00 – 17:30</span>
+            <span class="si-title">Talk 9</span>
+          </div>
+          <div class="si">
+            <div class="si-dot keynote"></div>
+            <span class="si-time">17:30 – 18:00</span>
+            <span class="si-title is-keynote">Closing &amp; Announcements</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Audience ── -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Audience</div>
+      <h2 class="section-title">Who attends — and why it matters</h2>
+      <div class="audience-grid">
+        <div class="aud-card">
+          <div class="aud-icon">🛡️</div>
+          <div>
+            <h3>Security Engineers &amp; Researchers</h3>
+            <p>From product companies, GCCs, and startups across Hyderabad.</p>
+          </div>
+        </div>
+        <div class="aud-card">
+          <div class="aud-icon">👮</div>
+          <div>
+            <h3>Cyber-crime &amp; Law-enforcement Officers</h3>
+            <p>Operational exposure to current attack techniques and defenders.</p>
+          </div>
+        </div>
+        <div class="aud-card">
+          <div class="aud-icon">💻</div>
+          <div>
+            <h3>Students &amp; CTF Teams</h3>
+            <p>From engineering colleges and universities in Telangana and beyond.</p>
+          </div>
+        </div>
+        <div class="aud-card">
+          <div class="aud-icon">🏢</div>
+          <div>
+            <h3>CISOs &amp; Industry Leaders</h3>
+            <p>Decision-makers from banking, healthcare, IT and government sectors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Team ── -->
+  <section class="section section-alt" id="team">
+    <div class="container">
+      <div class="eyebrow">The Team</div>
+      <h2 class="section-title">The people behind the conference</h2>
+      <p class="section-lead">A small core team backed by a strong volunteer base from Hyderabad's security community.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <span class="team-initials">BH</span>
+          </div>
+          <h3>Boddu Harshavardhan</h3>
+          <p>Co-organiser</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <span class="team-initials">SP</span>
+          </div>
+          <h3>Subhash Popuri</h3>
+          <p>Co-organiser</p>
+        </div>
+      </div>
+      <div class="team-volunteers">
+        <strong>Plus 20+ supporting volunteers</strong> — drawn from Hyderabad's security community, GCCs and student chapters.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CFP CTA ── -->
+  <section class="cta-section" id="cfp">
+    <div class="container">
+      <div class="eyebrow">Call for Papers</div>
+      <h2 class="section-title">Got something to share?</h2>
+      <p>We're looking for original research, vulnerability deep-dives, tooling demos, and defensive engineering stories. The CFP is open and reviewed by an independent board — no vendor pitches, just technical merit.</p>
+      <div class="cta-buttons">
+        <a href="cfp.html" class="btn-primary">Submit a Talk</a>
+        <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="btn-outline">Register Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+          </a>
+          <p>A technical, community-led security conference for India's fastest-growing tech hub. 28 November 2026 · Hyderabad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Conference</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#format">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+            <li><a href="cfp.html">Call for Papers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener">Register Interest</a></li>
+            <li><a href="cfp.html">Submit a Talk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Sponsor</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Hyderabad Security Conference. Organised by the Hyderabad security community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close nav on link click (mobile)
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Countdown to 28 Nov 2026 09:00 IST (UTC+5:30)
+    const target = new Date('2026-11-28T09:00:00+05:30');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML =
+          '<span style="color:var(--cyan);font-family:var(--font-mono)">Happening now!</span>';
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      const m = Math.floor(s / 60);
+      const h = Math.floor(m / 60);
+      const d = Math.floor(h / 24);
+      document.getElementById('cd-d').textContent = pad(d);
+      document.getElementById('cd-h').textContent = pad(h % 24);
+      document.getElementById('cd-m').textContent = pad(m % 60);
+      document.getElementById('cd-s').textContent = pad(s % 60);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
 </body>
 </html>

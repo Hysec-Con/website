@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — HysecCon 2026</title>
+  <meta name="description" content="Get in touch with the HysecCon 2026 team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.028);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.25s ease;
+    }
+    .contact-card:hover {
+      border-color: rgba(0,200,232,0.3);
+      transform: translateY(-3px);
+    }
+    .contact-card .cc-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .contact-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .contact-card p {
+      font-size: 0.88rem;
+      color: var(--gray-400);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .contact-card a.contact-link {
+      color: var(--cyan);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.2s;
+    }
+    .contact-card a.contact-link:hover { opacity: 0.8; }
+    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#format">Format</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="cfp.html" class="nav-cta">Submit CFP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Contact</div>
+      <h1>Get in touch.</h1>
+      <p>Reach out for sponsorship enquiries, CFP questions, press, or anything else about HysecCon 2026.</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="cc-icon">🎤</div>
+          <h3>Speaking &amp; CFP</h3>
+          <p>Questions about your talk submission, the review process, or speaker logistics.</p>
+          <a href="cfp.html" class="contact-link">View CFP page →</a>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">🤝</div>
+          <h3>Sponsorship</h3>
+          <p>Interested in sponsoring HysecCon 2026? We'd love to have you involved. Reach out and we'll send a prospectus.</p>
+          <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="contact-link">Express interest →</a>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">📰</div>
+          <h3>Press &amp; Media</h3>
+          <p>Media credentials, press releases, and interview requests for HysecCon 2026.</p>
+          <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="contact-link">Get in touch →</a>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">💬</div>
+          <h3>General Enquiries</h3>
+          <p>Everything else — volunteer opportunities, accessibility, logistics, or anything not covered above.</p>
+          <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="contact-link">Send a message →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span></a>
+          <p>A technical, community-led security conference. 28 November 2026 · Hyderabad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Conference</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#format">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener">Register Interest</a></li>
+            <li><a href="cfp.html">Submit a Talk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Hyderabad Security Conference.</p>
+        <p>Organised by the Hyderabad security community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>

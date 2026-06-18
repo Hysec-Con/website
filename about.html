@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — HysecCon 2026</title>
+  <meta name="description" content="About HysecCon 2026 — a technical, community-led security conference for Hyderabad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .value-card {
+      background: rgba(255,255,255,0.028);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+    .value-card .vi { font-size: 1.6rem; margin-bottom: 0.85rem; line-height: 1; }
+    .value-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .value-card p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.65; }
+    .about-body {
+      max-width: 720px;
+      margin-top: 2rem;
+    }
+    .about-body p {
+      color: var(--gray-400);
+      font-size: 0.97rem;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+    .about-body strong { color: var(--white); }
+    @media (max-width: 700px) { .values-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#format">Format</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="cfp.html" class="nav-cta">Submit CFP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="eyebrow">About HysecCon</div>
+      <h1>A security conference<br>worthy of Hyderabad.</h1>
+      <p>Technical. Community-led. Community-first. Built to last.</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+
+      <div class="about-body">
+        <p>The <strong>Hyderabad Security Conference (HysecCon) 2026</strong> is a one-day, deeply technical security conference taking place on <strong>28 November 2026</strong> in <strong>Hyderabad</strong>. Venue to be announced.</p>
+        <p>India hosts world-class security conferences — Nullcon in Goa, BSides Ahmedabad, c0c0n in Kerala. Each has helped shape regional research communities. Hyderabad — one of India's largest technology hubs and home to the security teams of nearly every major global company — has had no comparable event. HysecCon exists to change that.</p>
+        <p>Every talk is selected through an open Call for Papers, reviewed by an independent technical board. There are no vendor pitches, no paid speaking slots, and no sponsored content masquerading as research. The day also features a Capture the Flag competition open to students and professionals across Telangana and beyond.</p>
+      </div>
+
+      <div class="eyebrow" style="margin-top:4rem;">Our values</div>
+      <h2 class="section-title">What we stand for</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vi">💻</div>
+          <h3>100% Technical</h3>
+          <p>No sales pitches. Every talk must demonstrate original research, tooling, or hands-on security work.</p>
+        </div>
+        <div class="value-card">
+          <div class="vi">🔍</div>
+          <h3>Peer-Reviewed</h3>
+          <p>An open CFP reviewed by an independent board. Selections are made on technical merit alone.</p>
+        </div>
+        <div class="value-card">
+          <div class="vi">🤝</div>
+          <h3>Community-First</h3>
+          <p>Organised by Hyderabad's security community, for the community. Not a corporate event.</p>
+        </div>
+        <div class="value-card">
+          <div class="vi">🌐</div>
+          <h3>Open Access</h3>
+          <p>Affordable and accessible — we want every curious practitioner in Hyderabad to be able to attend.</p>
+        </div>
+        <div class="value-card">
+          <div class="vi">🏆</div>
+          <h3>Hands-On Learning</h3>
+          <p>A live CTF alongside technical talks so attendees don't just hear about security — they practice it.</p>
+        </div>
+        <div class="value-card">
+          <div class="vi">📅</div>
+          <h3>Built to Recur</h3>
+          <p>Designed as an annual flagship event — long-term value for Hyderabad's security ecosystem.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span></a>
+          <p>A technical, community-led security conference. 28 November 2026 · Hyderabad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Conference</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#format">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener">Register Interest</a></li>
+            <li><a href="cfp.html">Submit a Talk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Hyderabad Security Conference.</p>
+        <p>Organised by the Hyderabad security community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>

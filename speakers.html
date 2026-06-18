@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speakers — HysecCon 2026</title>
+  <meta name="description" content="Speakers at HysecCon 2026. Announcements coming soon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .speakers-tba {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      margin-top: 3rem;
+    }
+    .tba-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+    .speakers-tba h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .speakers-tba p {
+      color: var(--gray-400);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+    .cfp-note {
+      background: rgba(0,200,232,0.06);
+      border: 1px solid rgba(0,200,232,0.2);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .cfp-note-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .cfp-note h4 { font-size: 0.95rem; font-weight: 700; color: var(--cyan); margin-bottom: 0.25rem; }
+    .cfp-note p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.65; }
+    .cfp-note a { color: var(--cyan); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#format">Format</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="cfp.html" class="nav-cta">Submit CFP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Speakers</div>
+      <h1>The people<br>on stage.</h1>
+      <p>Speaker announcements will roll out as the CFP closes and selections are confirmed. Check back closer to November 2026.</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+
+      <div class="speakers-tba">
+        <div class="tba-icon">📢</div>
+        <h3>Announcements coming soon</h3>
+        <p>The Call for Papers is open. We'll announce accepted speakers on a rolling basis as the review board completes its selections. Register your interest to be notified first.</p>
+        <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="btn-primary">Notify me when speakers are announced</a>
+      </div>
+
+      <div class="cfp-note">
+        <div class="cfp-note-icon">🎤</div>
+        <div>
+          <h4>Want to speak at HysecCon 2026?</h4>
+          <p>The CFP is currently open. We're looking for original research, vulnerability deep-dives, and defensive engineering stories. <a href="cfp.html">Submit your talk →</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span></a>
+          <p>A technical, community-led security conference. 28 November 2026 · Hyderabad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Conference</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#format">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener">Register Interest</a></li>
+            <li><a href="cfp.html">Submit a Talk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Hyderabad Security Conference.</p>
+        <p>Organised by the Hyderabad security community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>

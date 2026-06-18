@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call for Papers — HysecCon 2026</title>
+  <meta name="description" content="Submit your talk to HysecCon 2026. We're looking for original security research, vulnerability deep-dives, and tooling demos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cfp-topics {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .topic {
+      background: rgba(255,255,255,0.028);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--gray-200);
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .topic::before { content: '→'; color: var(--cyan); flex-shrink: 0; }
+    .cfp-rules { margin: 2rem 0; display: flex; flex-direction: column; gap: 0.85rem; }
+    .rule {
+      display: flex; gap: 0.85rem; align-items: flex-start;
+      font-size: 0.9rem; color: var(--gray-400);
+    }
+    .rule-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--cyan-dim); border: 1px solid var(--cyan);
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+      color: var(--cyan); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .rule p { line-height: 1.65; }
+    .rule strong { color: var(--white); }
+    .cfp-form-cta {
+      background: rgba(0,200,232,0.05);
+      border: 1px solid rgba(0,200,232,0.2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cfp-form-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .cfp-form-cta p { color: var(--gray-400); margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.75; max-width: 480px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 640px) { .cfp-topics { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#format">Format</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="speakers.html">Speakers</a></li>
+        <li><a href="cfp.html" class="nav-cta">Submit CFP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Call for Papers</div>
+      <h1>Share your research<br>with Hyderabad.</h1>
+      <p>HysecCon 2026 is looking for technical talks selected purely on merit — no vendor pitches, no sales, just original security work. CFP closes when slots fill up.</p>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="container">
+
+      <div class="eyebrow">What we're looking for</div>
+      <h2 class="section-title">Talk topics</h2>
+      <p style="color:var(--gray-400);font-size:.95rem;">We welcome any technically rigorous submission. Here are areas of particular interest:</p>
+      <div class="cfp-topics">
+        <div class="topic">Web application security &amp; API attacks</div>
+        <div class="topic">Binary exploitation &amp; reverse engineering</div>
+        <div class="topic">Cloud &amp; infrastructure security</div>
+        <div class="topic">Mobile security (Android / iOS)</div>
+        <div class="topic">Malware analysis &amp; threat intelligence</div>
+        <div class="topic">Defensive engineering &amp; detection</div>
+        <div class="topic">Hardware &amp; embedded / IoT security</div>
+        <div class="topic">Cryptography &amp; protocol analysis</div>
+        <div class="topic">AI / LLM security &amp; adversarial ML</div>
+        <div class="topic">OSINT &amp; physical security</div>
+        <div class="topic">Incident response &amp; digital forensics</div>
+        <div class="topic">Novel research — any technical topic welcome</div>
+      </div>
+
+      <div class="eyebrow" style="margin-top:3rem;">Submission Guidelines</div>
+      <h2 class="section-title">Before you submit</h2>
+      <div class="cfp-rules">
+        <div class="rule">
+          <div class="rule-num">1</div>
+          <p><strong>Original work only.</strong> Talks must present your own research or project. Repurposed vendor pitches or purely promotional content will be rejected.</p>
+        </div>
+        <div class="rule">
+          <div class="rule-num">2</div>
+          <p><strong>Technical depth required.</strong> Include a clear abstract (200–400 words) describing the problem, your methodology, and the takeaways for the audience.</p>
+        </div>
+        <div class="rule">
+          <div class="rule-num">3</div>
+          <p><strong>Talk duration.</strong> Standard slots are 30 or 50 minutes including Q&amp;A. Indicate your preferred length.</p>
+        </div>
+        <div class="rule">
+          <div class="rule-num">4</div>
+          <p><strong>Responsible disclosure.</strong> If your research involves active vulnerabilities, ensure you have followed responsible disclosure with the affected vendor before submitting.</p>
+        </div>
+        <div class="rule">
+          <div class="rule-num">5</div>
+          <p><strong>Review process.</strong> All submissions are reviewed by an independent technical board. Decisions are based on novelty, technical depth, and relevance.</p>
+        </div>
+        <div class="rule">
+          <div class="rule-num">6</div>
+          <p><strong>Speaker benefits.</strong> Accepted speakers receive a complimentary conference pass. Travel and accommodation are not covered at this stage.</p>
+        </div>
+      </div>
+
+      <div class="cfp-form-cta">
+        <h3>Ready to submit?</h3>
+        <p>Fill in the form with your talk title, abstract, and a short bio. We'll get back to you with a decision within a few weeks of submission.</p>
+        <a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener" class="btn-primary">Submit via Google Form</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="logo-b">[</span>HysecCon<span class="logo-b"> 2026]</span></a>
+          <p>A technical, community-led security conference. 28 November 2026 · Hyderabad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Conference</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#format">Format</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="https://forms.gle/a1vxxK7z7hAia7Ts5" target="_blank" rel="noopener">Register Interest</a></li>
+            <li><a href="cfp.html">Submit a Talk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Hyderabad Security Conference.</p>
+        <p>Organised by the Hyderabad security community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>
